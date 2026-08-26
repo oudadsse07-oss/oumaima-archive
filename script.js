@@ -1,8 +1,8 @@
 document.addEventListener("DOMContentLoaded", function () {
 
   /* =========================
-     OPENING
-  ========================= */
+     ACCUEIL → ARCHIVES
+  ========================== */
 
   const opening = document.getElementById("opening");
   const archive = document.getElementById("archive");
@@ -21,28 +21,21 @@ document.addEventListener("DOMContentLoaded", function () {
 
   /* =========================
      DOCUMENTS
-  ========================= */
+  ========================== */
 
   const documents = {
-
     birth: document.getElementById("birthDocument"),
-
     law: document.getElementById("lawDocument"),
-
     marriage: document.getElementById("marriageDocument"),
-
     mansour: document.getElementById("mansourDocument"),
-
     family: document.getElementById("familyDocument"),
-
     graduation: document.getElementById("graduationDocument")
-
   };
 
 
   /* =========================
-     OPEN FILES
-  ========================= */
+     OUVRIR UN DOSSIER
+  ========================== */
 
   const files = document.querySelectorAll(".file");
 
@@ -50,18 +43,13 @@ document.addEventListener("DOMContentLoaded", function () {
 
     file.addEventListener("click", function () {
 
-      const fileType = file.getAttribute("data-file");
-
-      if (!fileType) {
-        return;
-      }
-
-      /* Don't open locked files */
       if (file.classList.contains("locked")) {
         return;
       }
 
-      const documentElement = documents[fileType];
+      const fileName = file.getAttribute("data-file");
+
+      const documentElement = documents[fileName];
 
       if (!documentElement) {
         return;
@@ -76,8 +64,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
   /* =========================
-     BACK BUTTONS
-  ========================= */
+     BOUTONS RETOUR
+  ========================== */
 
   const backButtons = document.querySelectorAll(".back-button");
 

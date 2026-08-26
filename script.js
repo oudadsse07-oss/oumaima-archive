@@ -16,7 +16,7 @@ enterBtn.addEventListener("click", function () {
 });
 
 
-// FILES
+// ALL FILES
 
 const files = document.querySelectorAll(".file");
 
@@ -40,6 +40,10 @@ files.forEach(function (file) {
 
     if (fileName === "mansour") {
       openDocument("mansourDocument");
+    }
+
+    if (fileName === "family") {
+      openDocument("familyDocument");
     }
 
     if (fileName === "graduation") {
@@ -75,6 +79,7 @@ closeButtons.forEach(function (button) {
   button.addEventListener("click", function () {
 
     const id = button.dataset.close;
+
     const documentPage = document.getElementById(id);
 
     documentPage.style.opacity = "0";

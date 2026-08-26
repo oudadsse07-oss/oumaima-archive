@@ -186,5 +186,15 @@ document.addEventListener("DOMContentLoaded", function () {
     closeDocument("coming");
 
   });
+const comingFile = document.getElementById("comingFile");
+const comingDocument = document.getElementById("comingDocument");
+const backComing = document.getElementById("backComing");
 
+comingFile.onclick = function () {
+  comingDocument.classList.add("open");
+};
+
+backComing.onclick = function () {
+  comingDocument.classList.remove("open");
+};
 });

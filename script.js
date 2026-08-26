@@ -52,8 +52,13 @@ closeBirth.onclick = function () {
 // OPEN 2016
 lawFile.onclick = function () {
 
+  if (lawFile.dataset.locked === "true") {
+    return;
+  }
+
   lawDocument.style.visibility = "visible";
   lawDocument.style.opacity = "1";
+
 };
 
 

@@ -38,7 +38,9 @@ closeBirth.onclick = function () {
   }, 800);
 
   // UNLOCK 2016
-  lawFile.classList.remove("locked");
+lawFile.dataset.locked = "false";
+lawFile.querySelector("span").textContent = "SEALED";
+lawFile.style.opacity = "1";
 
   // Change the text
   lawFile.querySelector("span").textContent = "SEALED";

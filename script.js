@@ -6,23 +6,27 @@ const birthFile = document.querySelector('[data-file="birth"]');
 const birthDocument = document.getElementById("birthDocument");
 const closeBirth = document.getElementById("closeBirth");
 
+const lawFile = document.getElementById("lawFile");
+const lawDocument = document.getElementById("lawDocument");
+const closeLaw = document.getElementById("closeLaw");
 
-// ENTER THE ARCHIVE
 
-enterBtn.addEventListener("click", () => {
+// ENTER ARCHIVE
+
+enterBtn.addEventListener("click", function() {
 
   opening.classList.remove("active");
 
-  setTimeout(() => {
+  setTimeout(function() {
     archive.classList.add("active");
   }, 700);
 
 });
 
 
-// OPEN THE 1998 FILE
+// OPEN 1998
 
-birthFile.addEventListener("click", () => {
+birthFile.addEventListener("click", function() {
 
   birthDocument.style.visibility = "visible";
   birthDocument.style.opacity = "1";
@@ -30,14 +34,43 @@ birthFile.addEventListener("click", () => {
 });
 
 
-// CLOSE THE 1998 FILE
+// CLOSE 1998 → UNLOCK 2016
 
-closeBirth.addEventListener("click", () => {
+closeBirth.addEventListener("click", function() {
 
   birthDocument.style.opacity = "0";
 
-  setTimeout(() => {
+  setTimeout(function() {
     birthDocument.style.visibility = "hidden";
+  }, 800);
+
+  lawFile.classList.remove("locked");
+
+});
+
+
+// OPEN 2016
+
+lawFile.addEventListener("click", function() {
+
+  if (lawFile.classList.contains("locked")) {
+    return;
+  }
+
+  lawDocument.style.visibility = "visible";
+  lawDocument.style.opacity = "1";
+
+});
+
+
+// CLOSE 2016
+
+closeLaw.addEventListener("click", function() {
+
+  lawDocument.style.opacity = "0";
+
+  setTimeout(function() {
+    lawDocument.style.visibility = "hidden";
   }, 800);
 
 });

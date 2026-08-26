@@ -1,5 +1,3 @@
-@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500&family=Montserrat:wght@300;400&display=swap');
-
 * {
   box-sizing: border-box;
   margin: 0;
@@ -7,335 +5,280 @@
 }
 
 body {
-  background: #0b0b0a;
-  color: #e8e1d5;
-  font-family: 'Cormorant Garamond', serif;
-  overflow: hidden;
+  background: #11100f;
+  color: #eee8df;
+  font-family: Georgia, "Times New Roman", serif;
+  min-height: 100vh;
+  overflow-x: hidden;
 }
 
 
-/* =========================
-   SCREENS
-========================= */
+/* SCREENS */
 
 .screen {
-  position: fixed;
-  inset: 0;
-
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-
-  text-align: center;
-
-  opacity: 0;
-  visibility: hidden;
-
-  transition: opacity 1s ease;
+  min-height: 100vh;
+  display: none;
+  padding: 70px 30px;
 }
 
 .screen.active {
-  opacity: 1;
-  visibility: visible;
+  display: flex;
 }
 
 
-/* =========================
-   OPENING
-========================= */
+/* OPENING */
 
 #opening {
-  background:
-    radial-gradient(
-      circle at center,
-      #1b1916 0%,
-      #0b0b0a 65%
-    );
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  transition: opacity 0.8s ease;
+}
+
+#opening:not(.active) {
+  opacity: 0;
+  pointer-events: none;
 }
 
 .classified {
-  font-family: 'Montserrat', sans-serif;
-  font-size: 9px;
-  letter-spacing: 6px;
-  color: #a89573;
-  margin-bottom: 28px;
+  font-family: Arial, sans-serif;
+  font-size: 11px;
+  letter-spacing: 5px;
+  margin-bottom: 25px;
+  opacity: 0.65;
 }
 
 .case-number {
-  font-family: 'Montserrat', sans-serif;
-  font-size: 8px;
+  font-family: Arial, sans-serif;
+  font-size: 10px;
   letter-spacing: 3px;
-  color: #625d55;
-  margin-bottom: 25px;
+  opacity: 0.45;
+  margin-bottom: 45px;
 }
 
 h1 {
-  font-size: clamp(70px, 12vw, 150px);
-  line-height: 0.8;
-  font-weight: 300;
-  letter-spacing: 8px;
-  color: #eee7dc;
+  font-size: clamp(45px, 8vw, 90px);
+  font-weight: normal;
+  letter-spacing: 5px;
+  line-height: 1.05;
 }
 
 .subtitle {
-  margin-top: 40px;
-  font-size: 21px;
+  margin-top: 30px;
   font-style: italic;
-  color: #a69d90;
+  opacity: 0.65;
 }
 
 #enterBtn {
-  margin-top: 45px;
-
-  padding: 15px 40px;
-
+  margin-top: 50px;
+  padding: 16px 28px;
   background: transparent;
-  border: 1px solid #76664d;
-
-  color: #d8cdbb;
-
-  font-family: 'Montserrat', sans-serif;
-  font-size: 9px;
-  letter-spacing: 5px;
-
+  border: 1px solid rgba(238, 232, 223, 0.5);
+  color: #eee8df;
+  letter-spacing: 3px;
   cursor: pointer;
-
-  transition: all 0.5s ease;
+  transition: 0.3s;
 }
 
 #enterBtn:hover {
-  background: #d8cdbb;
-  color: #0b0b0a;
-  transform: translateY(-3px);
+  background: #eee8df;
+  color: #11100f;
 }
 
 .bottom-text {
   position: absolute;
   bottom: 25px;
-
-  font-family: 'Montserrat', sans-serif;
-  font-size: 7px;
-  letter-spacing: 4px;
-
-  color: #403d38;
+  font-family: Arial, sans-serif;
+  font-size: 9px;
+  letter-spacing: 3px;
+  opacity: 0.35;
 }
 
 
-/* =========================
-   ARCHIVE
-========================= */
+/* ARCHIVE */
 
 #archive {
-  background:
-    radial-gradient(
-      circle at center,
-      #171512 0%,
-      #090908 70%
-    );
+  flex-direction: column;
+  align-items: center;
+}
+
+#archive:not(.active) {
+  display: none;
 }
 
 .archive-header {
-  position: absolute;
-  top: 40px;
-
+  width: min(900px, 100%);
   display: flex;
-  flex-direction: column;
-  gap: 8px;
-
-  font-family: 'Montserrat', sans-serif;
-  letter-spacing: 5px;
-}
-
-.archive-header span {
-  font-size: 12px;
-  color: #b9a98e;
+  justify-content: space-between;
+  border-bottom: 1px solid rgba(238, 232, 223, 0.2);
+  padding-bottom: 20px;
+  font-family: Arial, sans-serif;
+  letter-spacing: 3px;
 }
 
 .archive-header small {
-  font-size: 7px;
-  color: #555049;
-  letter-spacing: 3px;
+  opacity: 0.45;
 }
 
 .files {
+  width: min(900px, 100%);
+  margin-top: 70px;
   display: grid;
-  grid-template-columns: repeat(2, 180px);
-  gap: 20px;
+  gap: 15px;
 }
 
 .file {
-  height: 140px;
-
-  background: rgba(255,255,255,0.02);
-  border: 1px solid #38342e;
-
-  color: #cfc5b5;
-
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-columns: 120px 1fr 100px;
   align-items: center;
-  justify-content: center;
-
-  gap: 10px;
-
+  text-align: left;
+  padding: 24px;
+  background: transparent;
+  border: 1px solid rgba(238, 232, 223, 0.18);
+  color: #eee8df;
   cursor: pointer;
-
-  transition: all 0.4s ease;
+  transition: 0.35s;
 }
 
-.file:hover:not(.locked) {
-  border-color: #9d8b6c;
-  transform: translateY(-4px);
+.file:hover {
+  border-color: rgba(238, 232, 223, 0.65);
+  transform: translateX(6px);
 }
 
-.file span {
-  font-family: 'Montserrat', sans-serif;
-  font-size: 7px;
-  letter-spacing: 3px;
-  color: #8e806a;
+.file span,
+.file small {
+  font-family: Arial, sans-serif;
+  font-size: 9px;
+  letter-spacing: 2px;
+  opacity: 0.5;
 }
 
 .file strong {
-  font-size: 23px;
-  font-weight: 400;
+  font-size: 22px;
+  font-weight: normal;
 }
 
-.file small {
-  font-family: 'Montserrat', sans-serif;
-  font-size: 6px;
-  letter-spacing: 2px;
-  color: #4e4942;
-}
-
-.file.locked {
-  opacity: 0.25;
-  cursor: not-allowed;
+.mystery {
+  margin-top: 20px;
+  border-style: dashed;
 }
 
 .archive-note {
-  position: absolute;
-  bottom: 35px;
-
-  font-size: 15px;
+  margin-top: 45px;
   font-style: italic;
-
-  color: #5d574e;
+  opacity: 0.4;
 }
 
 
-/* =========================
-   DOCUMENT
-========================= */
+/* DOCUMENTS */
 
 .document {
   position: fixed;
   inset: 0;
-
-  background: #e8e1d5;
-  color: #25221e;
-
+  z-index: 10;
   display: flex;
   align-items: center;
   justify-content: center;
-
-  opacity: 0;
+  padding: 30px;
+  background: rgba(17, 16, 15, 0.98);
   visibility: hidden;
-
-  transition: opacity 0.8s ease;
-
-  z-index: 20;
+  opacity: 0;
+  transition: opacity 0.7s ease;
 }
 
 .document-inner {
-  width: min(650px, 85%);
+  width: min(650px, 100%);
+  border: 1px solid rgba(238, 232, 223, 0.25);
+  padding: 55px;
+  position: relative;
   text-align: center;
 }
 
+.close {
+  position: absolute;
+  top: 25px;
+  right: 30px;
+  border: none;
+  background: none;
+  color: #eee8df;
+  font-size: 30px;
+  cursor: pointer;
+}
+
 .document-label {
-  font-family: 'Montserrat', sans-serif;
-  font-size: 8px;
-  letter-spacing: 4px;
-  color: #817666;
+  font-family: Arial, sans-serif;
+  font-size: 9px;
+  letter-spacing: 3px;
+  opacity: 0.45;
   margin-bottom: 30px;
 }
 
 .document h2 {
-  font-size: clamp(45px, 8vw, 80px);
-  font-weight: 300;
-  letter-spacing: 5px;
+  font-size: clamp(35px, 7vw, 65px);
+  font-weight: normal;
+  letter-spacing: 4px;
 }
 
 .line {
   width: 70px;
   height: 1px;
-  background: #9a8a72;
+  background: rgba(238, 232, 223, 0.4);
   margin: 30px auto;
 }
 
 .document p {
-  font-size: 21px;
-  line-height: 1.7;
-  margin: 20px 0;
-  color: #554e45;
+  margin: 22px 0;
+  line-height: 1.8;
+  opacity: 0.8;
 }
 
 .signature {
-  margin-top: 45px;
-
   display: flex;
   justify-content: space-between;
-
-  font-family: 'Montserrat', sans-serif;
-  font-size: 8px;
-  letter-spacing: 3px;
-
-  color: #8a7b66;
+  margin-top: 45px;
+  font-family: Arial, sans-serif;
+  font-size: 9px;
+  letter-spacing: 2px;
+  opacity: 0.4;
 }
 
-#closeBirth {
-  position: absolute;
-  top: 25px;
-  right: 30px;
+.big-soft {
+  font-size: 30px;
+  font-style: italic;
+  opacity: 1 !important;
+}
 
-  background: none;
-  border: none;
-
+.secret-symbol {
   font-size: 35px;
-  font-weight: 200;
+  margin-bottom: 20px;
+  opacity: 0.6;
+}
 
-  color: #665d51;
-
-  cursor: pointer;
+.coming-soon h2 {
+  letter-spacing: 8px;
 }
 
 
-/* =========================
-   PHONE
-========================= */
+/* MOBILE */
 
 @media (max-width: 600px) {
 
-  .files {
-    grid-template-columns: 1fr 1fr;
-    gap: 10px;
+  .screen {
+    padding: 40px 20px;
   }
 
   .file {
-    width: 140px;
-    height: 120px;
+    grid-template-columns: 1fr;
+    gap: 10px;
   }
 
-  .file strong {
-    font-size: 17px;
+  .file small {
+    display: none;
   }
 
-  h1 {
-    font-size: 70px;
-  }
-
-  .subtitle {
-    font-size: 18px;
+  .document-inner {
+    padding: 40px 25px;
   }
 
 }

@@ -1,21 +1,19 @@
 
 
-   <!DOCTYPE html>
-<html lang="fr">
+  <!DOCTYPE html>
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>Oumaima — Les Archives</title>
+  <title>Oumaima — The Archive</title>
 
   <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-  <!-- ========================= -->
-  <!-- INTRODUCTION -->
-  <!-- ========================= -->
+  <!-- OPENING -->
 
   <section id="opening" class="screen active">
 
@@ -52,9 +50,7 @@
   </section>
 
 
-  <!-- ========================= -->
-  <!-- ARCHIVES -->
-  <!-- ========================= -->
+  <!-- ARCHIVE -->
 
   <section id="archive" class="screen">
 
@@ -65,57 +61,40 @@
 
     <div class="files">
 
-      <!-- DOSSIER 01 -->
-
       <button class="file" data-file="birth">
         <span>SCELLÉ</span>
         <strong>20 • 07 • 1998</strong>
         <small>DOSSIER 01</small>
       </button>
 
-
-      <!-- DOSSIER 02 -->
-
-      <button class="file" data-file="law">
+      <button id="lawFile" class="file" data-file="law">
         <span>SCELLÉ</span>
         <strong>2016</strong>
         <small>DOSSIER 02</small>
       </button>
 
-
-      <!-- DOSSIER 03 -->
-
-      <button class="file" data-file="marriage">
+      <button id="marriageFile" class="file" data-file="marriage">
         <span>SCELLÉ</span>
         <strong>2021</strong>
         <small>DOSSIER 03</small>
       </button>
 
-
-      <!-- DOSSIER 04 -->
-
-      <button class="file" data-file="mansour">
+      <button id="mansourFile" class="file" data-file="mansour">
         <span>SCELLÉ</span>
         <strong>17 • 04 • 2026</strong>
         <small>DOSSIER 04</small>
       </button>
 
-
-      <!-- DOSSIER 05 -->
-
-      <button class="file" data-file="family">
+      <button id="familyFile" class="file" data-file="family">
         <span>SCELLÉ</span>
         <strong>MESSAGE DE LA FAMILLE</strong>
         <small>DOSSIER 05</small>
       </button>
 
-
-      <!-- DOSSIER FINAL -->
-
-      <button class="file mystery" data-file="graduation">
+      <button id="graduationFile" class="file locked" data-file="graduation">
         <span>VERROUILLÉ</span>
         <strong>???</strong>
-        <small>DOSSIER FINAL • 06</small>
+        <small>DOSSIER FINAL</small>
       </button>
 
     </div>
@@ -128,15 +107,11 @@
   </section>
 
 
-  <!-- ========================= -->
-  <!-- DOSSIER 01 • 1998 -->
-  <!-- ========================= -->
+  <!-- BIRTH DOCUMENT -->
 
   <section id="birthDocument" class="document">
 
-    <button class="close" data-close="birthDocument">
-      ×
-    </button>
+    <button id="closeBirth">×</button>
 
     <div class="document-inner">
 
@@ -167,12 +142,6 @@
         son histoire allait devenir extraordinaire.
       </p>
 
-      <p>
-        Une petite fille qui allait grandir,
-        rêver, apprendre, aimer et construire
-        une vie dont elle serait fière.
-      </p>
-
       <div class="signature">
         <span>PAGE 01</span>
         <span>🤍</span>
@@ -183,15 +152,11 @@
   </section>
 
 
-  <!-- ========================= -->
-  <!-- DOSSIER 02 • 2016 -->
-  <!-- ========================= -->
+  <!-- 2016 DOCUMENT -->
 
   <section id="lawDocument" class="document">
 
-    <button class="close" data-close="lawDocument">
-      ×
-    </button>
+    <button id="closeLaw">×</button>
 
     <div class="document-inner">
 
@@ -199,9 +164,7 @@
         DOSSIER 02 • OUVERT
       </div>
 
-      <h2>
-        2016
-      </h2>
+      <h2>2016</h2>
 
       <div class="line"></div>
 
@@ -210,33 +173,28 @@
       </p>
 
       <p>
-        Et un tout nouveau chapitre
-        était sur le point de commencer.
+        Un nouveau chapitre était sur le point
+        de commencer.
       </p>
 
       <p>
-        En 2016, Oumaima fait son entrée
-        à la faculté de droit.
+        Prochaine destination :
+        <strong>FACULTÉ DE DROIT.</strong> ⚖️
       </p>
 
       <p>
-        Elle ne le savait probablement pas encore...
+        Elle pensait probablement simplement
+        commencer l'université...
       </p>
 
       <p>
-        mais elle venait de commencer
-        un voyage qui allait durer près de dix ans.
-      </p>
-
-      <p>
-        Dix ans d'études.<br>
-        Dix ans d'examens.<br>
-        Dix ans de persévérance.
+        Elle ne savait pas encore qu'elle venait
+        de commencer un voyage de dix ans.
       </p>
 
       <div class="signature">
         <span>PAGE 02</span>
-        <span>⚖️</span>
+        <span>2016</span>
       </div>
 
     </div>
@@ -244,15 +202,11 @@
   </section>
 
 
-  <!-- ========================= -->
-  <!-- DOSSIER 03 • 2021 -->
-  <!-- ========================= -->
+  <!-- 2021 DOCUMENT -->
 
   <section id="marriageDocument" class="document">
 
-    <button class="close" data-close="marriageDocument">
-      ×
-    </button>
+    <button id="closeMarriage">×</button>
 
     <div class="document-inner">
 
@@ -260,32 +214,25 @@
         DOSSIER 03 • OUVERT
       </div>
 
-      <h2>
-        2021
-      </h2>
+      <h2>2021</h2>
 
       <div class="line"></div>
 
       <p>
-        Quelque part en chemin...
+        Et puis...
       </p>
 
       <p>
-        La vie est devenue plus grande
-        que les études.
+        La vie a encore changé.
       </p>
 
       <p>
-        En 2021, un nouveau chapitre
-        commence dans la vie d'Oumaima.
+        En 2021, Oumaima épouse
+        <strong>Mustapha.</strong>
       </p>
 
       <p>
-        Elle épouse <strong>Mustapha.</strong>
-      </p>
-
-      <p>
-        Une nouvelle vie commence.
+        Un nouveau chapitre commence.
       </p>
 
       <p>
@@ -302,15 +249,11 @@
   </section>
 
 
-  <!-- ========================= -->
-  <!-- DOSSIER 04 • 2026 -->
-  <!-- ========================= -->
+  <!-- 2026 DOCUMENT -->
 
   <section id="mansourDocument" class="document">
 
-    <button class="close" data-close="mansourDocument">
-      ×
-    </button>
+    <button id="closeMansour">×</button>
 
     <div class="document-inner">
 
@@ -318,9 +261,7 @@
         DOSSIER 04 • OUVERT
       </div>
 
-      <h2>
-        17 AVRIL 2026
-      </h2>
+      <h2>17 AVRIL 2026</h2>
 
       <div class="line"></div>
 
@@ -334,24 +275,14 @@
       </p>
 
       <p>
-        Le 17 avril 2026,
-        Oumaima est devenue maman.
-      </p>
-
-      <p>
         Un tout nouvel amour est entré
         dans son histoire.
       </p>
 
       <p>
-        Étudiante en doctorat.<br>
         Épouse.<br>
-        Maman.
-      </p>
-
-      <p>
-        Et malgré tout...
-        elle continue d'avancer.
+        Maman.<br>
+        Et toujours en train d'avancer.
       </p>
 
       <div class="signature">
@@ -364,15 +295,11 @@
   </section>
 
 
-  <!-- ========================= -->
-  <!-- DOSSIER 05 • FAMILLE -->
-  <!-- ========================= -->
+  <!-- FAMILY DOCUMENT -->
 
   <section id="familyDocument" class="document">
 
-    <button class="close" data-close="familyDocument">
-      ×
-    </button>
+    <button id="closeFamily">×</button>
 
     <div class="document-inner">
 
@@ -409,8 +336,8 @@
         Parmi eux, <strong>Hajar</strong>, qui poursuit elle aussi
         son chemin dans le droit en préparant son master,
         est particulièrement fière de toi.
-        Que vos deux parcours continuent de vous inspirer
-        et de vous rendre fières l'une de l'autre. 🤍
+        Nous sommes fiers de vous deux
+        et de vos parcours. 🤍
       </p>
 
       <p class="big-soft">
@@ -422,14 +349,6 @@
         Fier de la femme que tu es devenue.
         Fier de ton parcours.
         Fier de tout ce que tu as accompli.
-        Et fier de tout ce qui t'attend encore.
-      </p>
-
-      <p>
-        Nous avons vu ton histoire s'écrire,
-        chapitre après chapitre,
-        et nous avons hâte de découvrir
-        la suite avec toi.
       </p>
 
       <p>
@@ -457,24 +376,16 @@
   </section>
 
 
-  <!-- ========================= -->
-  <!-- DOSSIER FINAL -->
-  <!-- ========================= -->
+  <!-- FINAL DOCUMENT -->
 
   <section id="graduationDocument" class="document">
 
-    <button class="close" data-close="graduationDocument">
-      ×
-    </button>
+    <button id="closeGraduation">×</button>
 
-    <div class="document-inner coming-soon">
+    <div class="document-inner">
 
       <div class="document-label">
         DOSSIER FINAL • 06
-      </div>
-
-      <div class="secret-symbol">
-        ✦
       </div>
 
       <h2>
@@ -505,29 +416,18 @@
         <span>🎓</span>
       </div>
 
-      <!-- PETITE DÉDICACE FINALE -->
-
-      <div class="final-dedication">
-
-        <p>
-          Cette archive a été créée avec amour
-          par <strong>Manal Oudadsse</strong>,
-          pour raconter l'histoire d'Oumaima
-          et lui rappeler une chose importante :
-        </p>
-
-        <p class="big-soft">
-          Nous sommes tous incroyablement fiers de toi. 🤍
-        </p>
-
-      </div>
+      <p>
+        Cette archive a été créée par
+        <strong>Manal Oudadsse</strong>
+        pour raconter l'histoire d'Oumaima
+        et lui transmettre à quel point
+        <strong>Manal et toute sa famille sont fiers d'elle.</strong>
+      </p>
 
     </div>
 
   </section>
 
-
-  <!-- SCRIPT -->
 
   <script src="script.js"></script>
 

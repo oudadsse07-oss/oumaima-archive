@@ -1,8 +1,8 @@
 document.addEventListener("DOMContentLoaded", function () {
 
   /* =========================
-     ACCUEIL → ARCHIVES
-  ========================== */
+     ACCUEIL
+  ========================= */
 
   const opening = document.getElementById("opening");
   const archive = document.getElementById("archive");
@@ -20,8 +20,10 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
   /* =========================
-     DOCUMENTS
-  ========================== */
+     DOSSIERS
+  ========================= */
+
+  const files = document.querySelectorAll(".file");
 
   const documents = {
     birth: document.getElementById("birthDocument"),
@@ -35,9 +37,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   /* =========================
      OUVRIR UN DOSSIER
-  ========================== */
-
-  const files = document.querySelectorAll(".file");
+  ========================= */
 
   files.forEach(function (file) {
 
@@ -65,7 +65,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   /* =========================
      BOUTONS RETOUR
-  ========================== */
+  ========================= */
 
   const backButtons = document.querySelectorAll(".back-button");
 
@@ -82,16 +82,85 @@ document.addEventListener("DOMContentLoaded", function () {
         return;
       }
 
+      /*
+       * On identifie le document qui vient d'être fermé
+       */
+
+      const documentId = documentElement.id;
+
+
+      /*
+       * Fermer le document
+       */
+
       documentElement.style.opacity = "0";
 
       setTimeout(function () {
-
         documentElement.style.visibility = "hidden";
-
       }, 500);
+
+
+      /*
+       * DÉVERROUILLAGE PROGRESSIF
+       */
+
+      if (documentId === "birthDocument") {
+
+        unlockFile("law");
+
+      }
+
+      else if (documentId === "lawDocument") {
+
+        unlockFile("marriage");
+
+      }
+
+      else if (documentId === "marriageDocument") {
+
+        unlockFile("mansour");
+
+      }
+
+      else if (documentId === "mansourDocument") {
+
+        unlockFile("family");
+
+      }
+
+      else if (documentId === "familyDocument") {
+
+        unlockFile("graduation");
+
+      }
 
     });
 
   });
+
+
+  /* =========================
+     FONCTION DÉVERROUILLAGE
+  ========================= */
+
+  function unlockFile(fileName) {
+
+    const file = document.querySelector(
+      '.file[data-file="' + fileName + '"]'
+    );
+
+    if (!file) {
+      return;
+    }
+
+    file.classList.remove("locked");
+
+    const status = file.querySelector("span");
+
+    if (status) {
+      status.textContent = "SCELLÉ";
+    }
+
+  }
 
 });

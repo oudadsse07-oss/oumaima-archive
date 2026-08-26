@@ -16,7 +16,7 @@ enterBtn.addEventListener("click", function () {
 });
 
 
-// ALL FILES
+// OPEN EVERY FILE
 
 const files = document.querySelectorAll(".file");
 
@@ -30,23 +30,23 @@ files.forEach(function (file) {
       openDocument("birthDocument");
     }
 
-    if (fileName === "law") {
+    else if (fileName === "law") {
       openDocument("lawDocument");
     }
 
-    if (fileName === "marriage") {
+    else if (fileName === "marriage") {
       openDocument("marriageDocument");
     }
 
-    if (fileName === "mansour") {
+    else if (fileName === "mansour") {
       openDocument("mansourDocument");
     }
 
-    if (fileName === "family") {
+    else if (fileName === "family") {
       openDocument("familyDocument");
     }
 
-    if (fileName === "graduation") {
+    else if (fileName === "graduation") {
       openDocument("graduationDocument");
     }
 
@@ -72,15 +72,15 @@ function openDocument(id) {
 
 // CLOSE DOCUMENTS
 
-const closeButtons = document.querySelectorAll("[data-close]");
+const closeButtons = document.querySelectorAll(".close");
 
 closeButtons.forEach(function (button) {
 
   button.addEventListener("click", function () {
 
-    const id = button.dataset.close;
-
-    const documentPage = document.getElementById(id);
+    const documentPage = document.getElementById(
+      button.getAttribute("data-close")
+    );
 
     documentPage.style.opacity = "0";
 

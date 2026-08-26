@@ -3,141 +3,112 @@ const archive = document.getElementById("archive");
 const enterBtn = document.getElementById("enterBtn");
 
 
-// =========================
-// ENTRER DANS LES ARCHIVES
-// =========================
+// ==========================
+// ENTER ARCHIVE
+// ==========================
 
 enterBtn.addEventListener("click", function () {
 
-  opening.classList.remove("active");
+    opening.classList.remove("active");
 
-  setTimeout(function () {
-    archive.classList.add("active");
-  }, 700);
+    setTimeout(function () {
+        archive.classList.add("active");
+    }, 700);
 
 });
 
 
-// =========================
-// OUVRIR UN DOSSIER
-// =========================
+// ==========================
+// OPEN DOCUMENT
+// ==========================
 
-function openDocument(id) {
+function openPage(id) {
 
-  const page = document.getElementById(id);
+    const page = document.getElementById(id);
 
-  if (!page) return;
+    if (!page) return;
 
-  page.style.visibility = "visible";
-  page.style.opacity = "1";
+    page.style.visibility = "visible";
+    page.style.opacity = "1";
 }
 
 
-// =========================
-// FERMER UN DOSSIER
-// =========================
+// ==========================
+// CLOSE DOCUMENT
+// ==========================
 
-function closeDocument(id) {
+function closePage(id) {
 
-  const page = document.getElementById(id);
+    const page = document.getElementById(id);
 
-  if (!page) return;
+    if (!page) return;
 
-  page.style.opacity = "0";
-
-  setTimeout(function () {
+    page.style.opacity = "0";
     page.style.visibility = "hidden";
-  }, 700);
+
 }
 
 
-// =========================
-// DOSSIERS
-// =========================
+// ==========================
+// OPEN FILES
+// ==========================
 
-document.querySelector('[data-file="birth"]')
-  .addEventListener("click", function () {
-    openDocument("birthDocument");
-  });
+document.querySelector('[data-file="birth"]').onclick = function () {
+    openPage("birthDocument");
+};
 
+document.querySelector('[data-file="law"]').onclick = function () {
+    openPage("lawDocument");
+};
 
-document.querySelector('[data-file="law"]')
-  .addEventListener("click", function () {
-    openDocument("lawDocument");
-  });
+document.querySelector('[data-file="marriage"]').onclick = function () {
+    openPage("marriageDocument");
+};
 
+document.querySelector('[data-file="mansour"]').onclick = function () {
+    openPage("mansourDocument");
+};
 
-document.querySelector('[data-file="marriage"]')
-  .addEventListener("click", function () {
-    openDocument("marriageDocument");
-  });
+document.querySelector('[data-file="family"]').onclick = function () {
+    openPage("familyDocument");
+};
 
-
-document.querySelector('[data-file="mansour"]')
-  .addEventListener("click", function () {
-    openDocument("mansourDocument");
-  });
-
-
-document.querySelector('[data-file="family"]')
-  .addEventListener("click", function () {
-    openDocument("familyDocument");
-  });
-
-
-// =========================
-// DERNIER DOSSIER
-// =========================
-
-document.querySelector('[data-file="graduation"]')
-  .addEventListener("click", function () {
+document.querySelector('[data-file="graduation"]').onclick = function () {
 
     const file = this;
 
     if (file.classList.contains("locked")) {
-      return;
+        return;
     }
 
-    openDocument("graduationDocument");
-
-  });
-
-
-// =========================
-// BOUTONS RETOUR
-// =========================
-
-document.getElementById("closeBirth")
-  .addEventListener("click", function () {
-    closeDocument("birthDocument");
-  });
+    openPage("graduationDocument");
+};
 
 
-document.getElementById("closeLaw")
-  .addEventListener("click", function () {
-    closeDocument("lawDocument");
-  });
+// ==========================
+// BACK BUTTONS
+// ==========================
 
+document.getElementById("closeBirth").onclick = function () {
+    closePage("birthDocument");
+};
 
-document.getElementById("closeMarriage")
-  .addEventListener("click", function () {
-    closeDocument("marriageDocument");
-  });
+document.getElementById("closeLaw").onclick = function () {
+    closePage("lawDocument");
+};
 
+document.getElementById("closeMarriage").onclick = function () {
+    closePage("marriageDocument");
+};
 
-document.getElementById("closeMansour")
-  .addEventListener("click", function () {
-    closeDocument("mansourDocument");
-  });
+document.getElementById("closeMansour").onclick = function () {
+    closePage("mansourDocument");
+};
 
+document.getElementById("closeFamily").onclick = function () {
+    closePage("familyDocument");
+};
 
-document.getElementById("closeFamily")
-  .addEventListener("click", function () {
-    closeDocument("familyDocument");
-  });
-
-
-document.getElementById("closeGraduation")
-  .addEventListener("click", function () {
-    closeDocument("graduationDocument");
-  });
+document.getElementById("closeGraduation").onclick = function () {
+    closePage("graduationDocument");
+};

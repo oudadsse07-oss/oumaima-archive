@@ -3,7 +3,7 @@ const archive = document.getElementById("archive");
 const enterBtn = document.getElementById("enterBtn");
 
 
-// ENTER ARCHIVE
+// ENTRER DANS LES ARCHIVES
 
 enterBtn.addEventListener("click", function () {
 
@@ -16,7 +16,7 @@ enterBtn.addEventListener("click", function () {
 });
 
 
-// OPEN EVERY FILE
+// OUVRIR TOUS LES DOSSIERS
 
 const files = document.querySelectorAll(".file");
 
@@ -55,7 +55,7 @@ files.forEach(function (file) {
 });
 
 
-// OPEN DOCUMENT
+// OUVRIR UNE PAGE
 
 function openDocument(id) {
 
@@ -70,7 +70,7 @@ function openDocument(id) {
 }
 
 
-// CLOSE DOCUMENTS
+// FERMER LES PAGES
 
 const closeButtons = document.querySelectorAll(".close");
 
@@ -78,9 +78,9 @@ closeButtons.forEach(function (button) {
 
   button.addEventListener("click", function () {
 
-    const documentPage = document.getElementById(
-      button.getAttribute("data-close")
-    );
+    const id = button.getAttribute("data-close");
+
+    const documentPage = document.getElementById(id);
 
     documentPage.style.opacity = "0";
 

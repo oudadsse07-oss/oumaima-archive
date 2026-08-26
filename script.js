@@ -1,114 +1,109 @@
-const opening = document.getElementById("opening");
-const archive = document.getElementById("archive");
-const enterBtn = document.getElementById("enterBtn");
+document.addEventListener("DOMContentLoaded", function () {
 
+  /* =========================
+     OPENING
+  ========================= */
 
-// ==========================
-// ENTER ARCHIVE
-// ==========================
+  const opening = document.getElementById("opening");
+  const archive = document.getElementById("archive");
+  const enterBtn = document.getElementById("enterBtn");
 
-enterBtn.addEventListener("click", function () {
+  enterBtn.addEventListener("click", function () {
 
     opening.classList.remove("active");
 
     setTimeout(function () {
-        archive.classList.add("active");
+      archive.classList.add("active");
     }, 700);
 
-});
+  });
 
 
-// ==========================
-// OPEN DOCUMENT
-// ==========================
+  /* =========================
+     DOCUMENTS
+  ========================= */
 
-function openPage(id) {
+  const documents = {
 
-    const page = document.getElementById(id);
+    birth: document.getElementById("birthDocument"),
 
-    if (!page) return;
+    law: document.getElementById("lawDocument"),
 
-    page.style.visibility = "visible";
-    page.style.opacity = "1";
-}
+    marriage: document.getElementById("marriageDocument"),
 
+    mansour: document.getElementById("mansourDocument"),
 
-// ==========================
-// CLOSE DOCUMENT
-// ==========================
+    family: document.getElementById("familyDocument"),
 
-function closePage(id) {
+    graduation: document.getElementById("graduationDocument")
 
-    const page = document.getElementById(id);
-
-    if (!page) return;
-
-    page.style.opacity = "0";
-    page.style.visibility = "hidden";
-
-}
+  };
 
 
-// ==========================
-// OPEN FILES
-// ==========================
+  /* =========================
+     OPEN FILES
+  ========================= */
 
-document.querySelector('[data-file="birth"]').onclick = function () {
-    openPage("birthDocument");
-};
+  const files = document.querySelectorAll(".file");
 
-document.querySelector('[data-file="law"]').onclick = function () {
-    openPage("lawDocument");
-};
+  files.forEach(function (file) {
 
-document.querySelector('[data-file="marriage"]').onclick = function () {
-    openPage("marriageDocument");
-};
+    file.addEventListener("click", function () {
 
-document.querySelector('[data-file="mansour"]').onclick = function () {
-    openPage("mansourDocument");
-};
+      const fileType = file.getAttribute("data-file");
 
-document.querySelector('[data-file="family"]').onclick = function () {
-    openPage("familyDocument");
-};
-
-document.querySelector('[data-file="graduation"]').onclick = function () {
-
-    const file = this;
-
-    if (file.classList.contains("locked")) {
+      if (!fileType) {
         return;
-    }
+      }
 
-    openPage("graduationDocument");
-};
+      /* Don't open locked files */
+      if (file.classList.contains("locked")) {
+        return;
+      }
+
+      const documentElement = documents[fileType];
+
+      if (!documentElement) {
+        return;
+      }
+
+      documentElement.style.visibility = "visible";
+      documentElement.style.opacity = "1";
+
+    });
+
+  });
 
 
-// ==========================
-// BACK BUTTONS
-// ==========================
+  /* =========================
+     BACK BUTTONS
+  ========================= */
 
-document.getElementById("closeBirth").onclick = function () {
-    closePage("birthDocument");
-};
+  const backButtons = document.querySelectorAll(".back-button");
 
-document.getElementById("closeLaw").onclick = function () {
-    closePage("lawDocument");
-};
+  backButtons.forEach(function (button) {
 
-document.getElementById("closeMarriage").onclick = function () {
-    closePage("marriageDocument");
-};
+    button.addEventListener("click", function (event) {
 
-document.getElementById("closeMansour").onclick = function () {
-    closePage("mansourDocument");
-};
+      event.preventDefault();
+      event.stopPropagation();
 
-document.getElementById("closeFamily").onclick = function () {
-    closePage("familyDocument");
-};
+      const documentElement = button.closest(".document");
 
-document.getElementById("closeGraduation").onclick = function () {
-    closePage("graduationDocument");
-};
+      if (!documentElement) {
+        return;
+      }
+
+      documentElement.style.opacity = "0";
+
+      setTimeout(function () {
+
+        documentElement.style.visibility = "hidden";
+
+      }, 500);
+
+    });
+
+  });
+
+});

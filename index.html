@@ -54,80 +54,51 @@
 
     <div class="files">
 
+      <!-- 1998 -->
+
       <button class="file" data-file="birth">
         <span>SEALED</span>
         <strong>20 • 07 • 1998</strong>
         <small>FILE 01</small>
       </button>
 
- <button id="lawFile" class="file"
-onclick="document.getElementById('lawDocument').style.visibility='visible'; document.getElementById('lawDocument').style.opacity='1';">
 
-  <span>LOCKED</span>
-  <strong>2016</strong>
-  <small>FILE 02</small>
+      <!-- 2016 -->
 
-<button id="marriageFile" class="file"
-onclick="document.getElementById('marriageDocument').style.visibility='visible'; document.getElementById('marriageDocument').style.opacity='1';">
+      <button
+        id="lawFile"
+        class="file"
+        onclick="document.getElementById('lawDocument').style.visibility='visible'; document.getElementById('lawDocument').style.opacity='1';"
+      >
+        <span>LOCKED</span>
+        <strong>2016</strong>
+        <small>FILE 02</small>
+      </button>
 
-  <span>SEALED</span>
- 
-  <!-- 2021 DOCUMENT -->
 
-<section id="marriageDocument" class="document">
+      <!-- 2021 -->
 
-  <button onclick="document.getElementById('marriageDocument').style.opacity='0'; setTimeout(function(){document.getElementById('marriageDocument').style.visibility='hidden';},800);">×</button>
+      <button
+        id="marriageFile"
+        class="file"
+        onclick="document.getElementById('marriageDocument').style.visibility='visible'; document.getElementById('marriageDocument').style.opacity='1';"
+      >
+        <span>SEALED</span>
+        <strong>2021</strong>
+        <small>FILE 03</small>
+      </button>
 
-  <div class="document-inner">
 
-    <div class="document-label">
-      FILE 03 • OPENED
-    </div>
-
-    <h2>2021</h2>
-
-    <div class="line"></div>
-
-    <p>
-      And then...
-    </p>
-
-    <p>
-      Life changed again.
-    </p>
-
-    <p>
-      In 2021, she married the person
-      who would become her partner through
-      everything that followed.
-    </p>
-
-    <p>
-      A new chapter began.
-    </p>
-
-    <p>
-      But the story was far from finished.
-    </p>
-
-    <div class="signature">
-      <span>PAGE 03</span>
-      <span>∞</span>
-    </div>
-
-  </div>
-
-</section>
-  <strong>2021</strong>
-  <small>FILE 03</small>
-
-</button>
+      <!-- MANSOUR -->
 
       <button class="file locked">
         <span>LOCKED</span>
         <strong>17 • 04 • 2026</strong>
         <small>FILE 04</small>
       </button>
+
+
+      <!-- FINAL -->
 
       <button class="file locked">
         <span>LOCKED</span>
@@ -156,9 +127,7 @@ onclick="document.getElementById('marriageDocument').style.visibility='visible';
         FILE 01 • OPENED
       </div>
 
-      <h2>
-        20 JULY 1998
-      </h2>
+      <h2>20 JULY 1998</h2>
 
       <div class="line"></div>
 
@@ -190,57 +159,110 @@ onclick="document.getElementById('marriageDocument').style.visibility='visible';
 
   <!-- 2016 DOCUMENT -->
 
-<section id="lawDocument" class="document">
+  <section id="lawDocument" class="document">
 
-  <button id="closeLaw">×</button>
+    <button id="closeLaw">×</button>
 
-  <div class="document-inner">
+    <div class="document-inner">
 
-    <div class="document-label">
-      FILE 02 • OPENED
+      <div class="document-label">
+        FILE 02 • OPENED
+      </div>
+
+      <h2>2016</h2>
+
+      <div class="line"></div>
+
+      <p>
+        A chapter had just ended.
+      </p>
+
+      <p>
+        Another one was about to begin.
+      </p>
+
+      <p>
+        High school: <strong>completed.</strong> 🎓
+      </p>
+
+      <p>
+        Next destination:
+        <strong>LAW SCHOOL.</strong> ⚖️
+      </p>
+
+      <p>
+        She probably thought she was simply
+        starting university...
+      </p>
+
+      <p>
+        She didn't know she had just started
+        a ten-year journey.
+      </p>
+
+      <div class="signature">
+        <span>PAGE 02</span>
+        <span>2016</span>
+      </div>
+
     </div>
 
-    <h2>2016</h2>
+  </section>
 
-    <div class="line"></div>
 
-    <p>
-      A chapter had just ended.
-    </p>
+  <!-- 2021 DOCUMENT -->
 
-    <p>
-      Another one was about to begin.
-    </p>
+  <section id="marriageDocument" class="document">
 
-    <p>
-      High school: <strong>completed.</strong> 🎓
-    </p>
+    <button
+      onclick="document.getElementById('marriageDocument').style.opacity='0'; setTimeout(function(){document.getElementById('marriageDocument').style.visibility='hidden';},800);"
+    >
+      ×
+    </button>
 
-    <p>
-      Next destination:
-      <strong>LAW SCHOOL.</strong> ⚖️
-    </p>
+    <div class="document-inner">
 
-    <p>
-      She probably thought she was simply
-      starting university...
-    </p>
+      <div class="document-label">
+        FILE 03 • OPENED
+      </div>
 
-    <p>
-      She didn't know she had just started
-      a ten-year journey.
-    </p>
+      <h2>2021</h2>
 
-    <div class="signature">
-      <span>PAGE 02</span>
-      <span>2016</span>
+      <div class="line"></div>
+
+      <p>
+        And then...
+      </p>
+
+      <p>
+        Life changed again.
+      </p>
+
+      <p>
+        In 2021, she got married.
+      </p>
+
+      <p>
+        Another chapter began.
+      </p>
+
+      <p>
+        But the story was far from finished.
+      </p>
+
+      <div class="signature">
+        <span>PAGE 03</span>
+        <span>∞</span>
+      </div>
+
     </div>
 
-  </div>
+  </section>
 
-</section>
 
   <script src="script.js"></script>
 
 </body>
 </html>
+
+

@@ -54,56 +54,34 @@
 
     <div class="files">
 
-      <!-- 1998 -->
-
       <button class="file" data-file="birth">
         <span>SEALED</span>
         <strong>20 • 07 • 1998</strong>
         <small>FILE 01</small>
       </button>
 
-
-      <!-- 2016 -->
-
-      <button
-        id="lawFile"
-        class="file"
-        onclick="document.getElementById('lawDocument').style.visibility='visible'; document.getElementById('lawDocument').style.opacity='1';"
-      >
-        <span>LOCKED</span>
+      <button class="file" data-file="law">
+        <span>SEALED</span>
         <strong>2016</strong>
         <small>FILE 02</small>
       </button>
 
-
-      <!-- 2021 -->
-
-      <button
-        id="marriageFile"
-        class="file"
-        onclick="document.getElementById('marriageDocument').style.visibility='visible'; document.getElementById('marriageDocument').style.opacity='1';"
-      >
+      <button class="file" data-file="marriage">
         <span>SEALED</span>
         <strong>2021</strong>
         <small>FILE 03</small>
       </button>
 
-
-      <!-- MANSOUR -->
-
-      <button class="file locked">
-        <span>LOCKED</span>
+      <button class="file" data-file="mansour">
+        <span>SEALED</span>
         <strong>17 • 04 • 2026</strong>
         <small>FILE 04</small>
       </button>
 
-
-      <!-- FINAL -->
-
-      <button class="file locked">
+      <button class="file mystery" data-file="graduation">
         <span>LOCKED</span>
         <strong>???</strong>
-        <small>FILE 05</small>
+        <small>FINAL FILE</small>
       </button>
 
     </div>
@@ -115,11 +93,11 @@
   </section>
 
 
-  <!-- BIRTH DOCUMENT -->
+  <!-- 1998 -->
 
   <section id="birthDocument" class="document">
 
-    <button id="closeBirth">×</button>
+    <button class="close" data-close="birthDocument">×</button>
 
     <div class="document-inner">
 
@@ -157,11 +135,11 @@
   </section>
 
 
-  <!-- 2016 DOCUMENT -->
+  <!-- 2016 -->
 
   <section id="lawDocument" class="document">
 
-    <button id="closeLaw">×</button>
+    <button class="close" data-close="lawDocument">×</button>
 
     <div class="document-inner">
 
@@ -174,35 +152,35 @@
       <div class="line"></div>
 
       <p>
-        A chapter had just ended.
+        High school was over.
       </p>
 
       <p>
-        Another one was about to begin.
+        And a completely different chapter was waiting.
       </p>
 
       <p>
-        High school: <strong>completed.</strong> 🎓
+        In 2016, she stepped into law school.
       </p>
 
       <p>
-        Next destination:
-        <strong>LAW SCHOOL.</strong> ⚖️
+        She probably didn't know it yet...
       </p>
 
       <p>
-        She probably thought she was simply
-        starting university...
+        but she had just begun a journey that would
+        take almost ten years.
       </p>
 
       <p>
-        She didn't know she had just started
-        a ten-year journey.
+        Ten years of studying.<br>
+        Ten years of exams.<br>
+        Ten years of perseverance.
       </p>
 
       <div class="signature">
         <span>PAGE 02</span>
-        <span>2016</span>
+        <span>⚖️</span>
       </div>
 
     </div>
@@ -210,15 +188,11 @@
   </section>
 
 
-  <!-- 2021 DOCUMENT -->
+  <!-- 2021 -->
 
   <section id="marriageDocument" class="document">
 
-    <button
-      onclick="document.getElementById('marriageDocument').style.opacity='0'; setTimeout(function(){document.getElementById('marriageDocument').style.visibility='hidden';},800);"
-    >
-      ×
-    </button>
+    <button class="close" data-close="marriageDocument">×</button>
 
     <div class="document-inner">
 
@@ -231,11 +205,11 @@
       <div class="line"></div>
 
       <p>
-        And then...
+        Somewhere along the way...
       </p>
 
       <p>
-        Life changed again.
+        life became bigger than university.
       </p>
 
       <p>
@@ -247,7 +221,7 @@
       </p>
 
       <p>
-        But the story was far from finished.
+        And somehow, she kept going.
       </p>
 
       <div class="signature">
@@ -260,9 +234,106 @@
   </section>
 
 
+  <!-- MANSOUR -->
+
+  <section id="mansourDocument" class="document">
+
+    <button class="close" data-close="mansourDocument">×</button>
+
+    <div class="document-inner">
+
+      <div class="document-label">
+        FILE 04 • OPENED
+      </div>
+
+      <h2>17 APRIL 2026</h2>
+
+      <div class="line"></div>
+
+      <p>
+        And then came the chapter nobody
+        could have written for her.
+      </p>
+
+      <p class="big-soft">
+        Mansour.
+      </p>
+
+      <p>
+        On 17 April 2026, she became a mother.
+      </p>
+
+      <p>
+        While still carrying the weight of years
+        of studying, she began the most beautiful
+        role of her life.
+      </p>
+
+      <p>
+        Doctorate student.<br>
+        Wife.<br>
+        Mother.
+      </p>
+
+      <p>
+        And still... she kept moving forward.
+      </p>
+
+      <div class="signature">
+        <span>PAGE 04</span>
+        <span>♡</span>
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- GRADUATION -->
+
+  <section id="graduationDocument" class="document">
+
+    <button class="close" data-close="graduationDocument">×</button>
+
+    <div class="document-inner coming-soon">
+
+      <div class="document-label">
+        FINAL FILE
+      </div>
+
+      <div class="secret-symbol">✦</div>
+
+      <h2>COMING SOON</h2>
+
+      <div class="line"></div>
+
+      <p>
+        The exact date has not been written yet.
+      </p>
+
+      <p>
+        But after ten years...
+      </p>
+
+      <p class="big-soft">
+        the end is finally near.
+      </p>
+
+      <p>
+        One last chapter remains.
+      </p>
+
+      <div class="signature">
+        <span>PAGE 05</span>
+        <span>🎓</span>
+      </div>
+
+    </div>
+
+  </section>
+
+
   <script src="script.js"></script>
 
 </body>
 </html>
-
-

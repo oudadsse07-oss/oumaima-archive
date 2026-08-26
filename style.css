@@ -13,7 +13,9 @@ body {
 }
 
 
-/* SCREENS */
+/* =========================
+   SCREENS
+========================= */
 
 .screen {
   min-height: 100vh;
@@ -26,7 +28,9 @@ body {
 }
 
 
-/* OPENING */
+/* =========================
+   OPENING
+========================= */
 
 #opening {
   flex-direction: column;
@@ -96,7 +100,9 @@ h1 {
 }
 
 
-/* ARCHIVE */
+/* =========================
+   ARCHIVE
+========================= */
 
 #archive {
   flex-direction: column;
@@ -159,9 +165,9 @@ h1 {
   font-weight: normal;
 }
 
-.mystery {
-  margin-top: 20px;
-  border-style: dashed;
+.file.locked {
+  opacity: 0.45;
+  cursor: not-allowed;
 }
 
 .archive-note {
@@ -171,40 +177,102 @@ h1 {
 }
 
 
-/* DOCUMENTS */
+/* =========================
+   DOCUMENTS
+========================= */
 
 .document {
   position: fixed;
   inset: 0;
-  z-index: 10;
+
+  z-index: 100;
+
   display: flex;
   align-items: center;
   justify-content: center;
+
   padding: 30px;
+
   background: rgba(17, 16, 15, 0.98);
+
   visibility: hidden;
   opacity: 0;
-  transition: opacity 0.7s ease;
+
+  transition: opacity 0.5s ease;
+
+  pointer-events: none;
 }
 
 .document-inner {
   width: min(650px, 100%);
+
+  max-height: 80vh;
+  overflow-y: auto;
+
   border: 1px solid rgba(238, 232, 223, 0.25);
+
   padding: 55px;
+
   position: relative;
+
   text-align: center;
 }
 
-.close {
-  position: absolute;
-  top: 25px;
-  right: 30px;
-  border: none;
-  background: none;
-  color: #eee8df;
-  font-size: 30px;
-  cursor: pointer;
+
+/* =========================
+   CLOSE / BACK BUTTON
+========================= */
+
+.back-button {
+  position: fixed !important;
+
+  left: 50% !important;
+  bottom: 20px !important;
+
+  transform: translateX(-50%) !important;
+
+  z-index: 999999 !important;
+
+  display: block !important;
+
+  width: auto !important;
+  min-width: 200px !important;
+
+  padding: 15px 24px !important;
+
+  background: #11100f !important;
+  color: #eee8df !important;
+
+  border: 1px solid rgba(238, 232, 223, 0.8) !important;
+  border-radius: 4px !important;
+
+  font-family: Arial, sans-serif !important;
+  font-size: 11px !important;
+
+  letter-spacing: 2px !important;
+
+  cursor: pointer !important;
+
+  pointer-events: auto !important;
+  touch-action: manipulation !important;
+
+  -webkit-tap-highlight-color: transparent;
 }
+
+.back-button:hover {
+  background: #eee8df !important;
+  color: #11100f !important;
+}
+
+.back-button:active {
+  background: #eee8df !important;
+  color: #11100f !important;
+}
+
+
+/* =========================
+   DOCUMENT CONTENT
+========================= */
 
 .document-label {
   font-family: Arial, sans-serif;
@@ -223,7 +291,9 @@ h1 {
 .line {
   width: 70px;
   height: 1px;
+
   background: rgba(238, 232, 223, 0.4);
+
   margin: 30px auto;
 }
 
@@ -236,12 +306,20 @@ h1 {
 .signature {
   display: flex;
   justify-content: space-between;
+
   margin-top: 45px;
+
   font-family: Arial, sans-serif;
   font-size: 9px;
   letter-spacing: 2px;
+
   opacity: 0.4;
 }
+
+
+/* =========================
+   EXTRA STYLES
+========================= */
 
 .big-soft {
   font-size: 30px;
@@ -260,7 +338,9 @@ h1 {
 }
 
 
-/* MOBILE */
+/* =========================
+   MOBILE
+========================= */
 
 @media (max-width: 600px) {
 
@@ -277,87 +357,20 @@ h1 {
     display: none;
   }
 
-  .document-inner {
-    padding: 40px 25px;
+  .document {
+    padding: 20px;
   }
 
-} .back-button {
-  position: fixed !important;
-  bottom: 25px !important;
-  left: 50% !important;
-  transform: translateX(-50%) !important;
+  .document-inner {
+    padding: 35px 20px;
+    max-height: 75vh;
+  }
 
-  z-index: 99999 !important;
+  .back-button {
+    bottom: 15px !important;
+    min-width: 190px !important;
+    padding: 14px 18px !important;
+    font-size: 10px !important;
+  }
 
-  display: block !important;
-  visibility: visible !important;
-  opacity: 1 !important;
-
-  pointer-events: auto !important;
-
-  padding: 14px 24px !important;
-
-  cursor: pointer !important;
-  touch-action: manipulation !important;
-
-  background: #111 !important;
-  color: #fff !important;
-
-  border: 1px solid #fff !important;
-  border-radius: 5px !important;
-}
-/* ===== FIX BOUTONS RETOUR ===== */
-
-.document {
-  pointer-events: auto !important;
-}
-
-.document .back-button {
-  position: fixed !important;
-  bottom: 25px !important;
-  left: 50% !important;
-  transform: translateX(-50%) !important;
-
-  z-index: 999999 !important;
-
-  pointer-events: auto !important;
-  touch-action: manipulation !important;
-
-  display: block !important;
-  visibility: visible !important;
-  opacity: 1 !important;
-
-  padding: 15px 25px !important;
-
-  background: #111 !important;
-  color: white !important;
-
-  border: 1px solid white !important;
-  border-radius: 5px !important;
-
-  font-size: 12px !important;
-  cursor: pointer !important;
-} .back-button {
-  position: fixed !important;
-  bottom: 20px !important;
-  left: 50% !important;
-  transform: translateX(-50%) !important;
-
-  z-index: 2147483647 !important;
-
-  pointer-events: auto !important;
-  touch-action: manipulation !important;
-
-  display: block !important;
-  visibility: visible !important;
-  opacity: 1 !important;
-
-  background: black !important;
-  color: white !important;
-
-  border: 2px solid white !important;
-  padding: 15px 25px !important;
-
-  font-size: 14px !important;
-  cursor: pointer !important;
 }

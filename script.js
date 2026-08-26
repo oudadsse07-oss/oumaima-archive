@@ -38,16 +38,20 @@ birthFile.addEventListener("click", function() {
 
 closeBirth.addEventListener("click", function() {
 
+  // Close the 1998 document
   birthDocument.style.opacity = "0";
 
   setTimeout(function() {
     birthDocument.style.visibility = "hidden";
   }, 800);
 
+  // Unlock 2016
   lawFile.classList.remove("locked");
 
-});
+  // Change LOCKED to SEALED
+  lawFile.querySelector("span").textContent = "SEALED";
 
+});
 
 // OPEN 2016
 

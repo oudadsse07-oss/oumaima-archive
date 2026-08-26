@@ -53,9 +53,7 @@ closeBirth.addEventListener("click", function() {
 
 lawFile.addEventListener("click", function() {
 
-  if (lawFile.classList.contains("locked")) {
-    return;
-  }
+  
 
   lawDocument.style.visibility = "visible";
   lawDocument.style.opacity = "1";

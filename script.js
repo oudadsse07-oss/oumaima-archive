@@ -1,29 +1,29 @@
 document.addEventListener("DOMContentLoaded", function () {
 
   /* =========================
-     ACCUEIL
+     ACCUEIL → ARCHIVES
   ========================= */
 
   const opening = document.getElementById("opening");
   const archive = document.getElementById("archive");
   const enterBtn = document.getElementById("enterBtn");
 
-  enterBtn.addEventListener("click", function () {
+  if (enterBtn) {
+    enterBtn.addEventListener("click", function () {
 
-    opening.classList.remove("active");
+      opening.classList.remove("active");
 
-    setTimeout(function () {
-      archive.classList.add("active");
-    }, 700);
+      setTimeout(function () {
+        archive.classList.add("active");
+      }, 700);
 
-  });
+    });
+  }
 
 
   /* =========================
-     DOSSIERS
+     TOUS LES DOCUMENTS
   ========================= */
-
-  const files = document.querySelectorAll(".file");
 
   const documents = {
     birth: document.getElementById("birthDocument"),
@@ -36,13 +36,27 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
   /* =========================
+     TOUS LES DOSSIERS
+  ========================= */
+
+  const files = document.querySelectorAll(".file");
+
+
+  /* =========================
      OUVRIR UN DOSSIER
   ========================= */
 
   files.forEach(function (file) {
 
-    file.addEventListener("click", function () {
+    file.addEventListener("click", function (event) {
 
+      event.preventDefault();
+      event.stopPropagation();
+
+      /*
+       * Si le dossier est verrouillé,
+       * on ne fait absolument rien.
+       */
       if (file.classList.contains("locked")) {
         return;
       }
@@ -55,6 +69,10 @@ document.addEventListener("DOMContentLoaded", function () {
         return;
       }
 
+      /*
+       * OUVERTURE
+       */
+
       documentElement.style.visibility = "visible";
       documentElement.style.opacity = "1";
 
@@ -64,7 +82,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
   /* =========================
-     BOUTONS RETOUR
+     TOUS LES BOUTONS RETOUR
   ========================= */
 
   const backButtons = document.querySelectorAll(".back-button");
@@ -82,15 +100,11 @@ document.addEventListener("DOMContentLoaded", function () {
         return;
       }
 
-      /*
-       * On identifie le document qui vient d'être fermé
-       */
-
       const documentId = documentElement.id;
 
 
       /*
-       * Fermer le document
+       * FERMER LE DOCUMENT
        */
 
       documentElement.style.opacity = "0";
@@ -101,7 +115,9 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
       /*
+       * =========================
        * DÉVERROUILLAGE PROGRESSIF
+       * =========================
        */
 
       if (documentId === "birthDocument") {
@@ -110,11 +126,13 @@ document.addEventListener("DOMContentLoaded", function () {
 
       }
 
+
       else if (documentId === "lawDocument") {
 
         unlockFile("marriage");
 
       }
+
 
       else if (documentId === "marriageDocument") {
 
@@ -122,11 +140,19 @@ document.addEventListener("DOMContentLoaded", function () {
 
       }
 
+
       else if (documentId === "mansourDocument") {
 
         unlockFile("family");
 
       }
+
+
+      /*
+       * =========================
+       * FAMILLE → COMING SOON
+       * =========================
+       */
 
       else if (documentId === "familyDocument") {
 
@@ -140,7 +166,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
   /* =========================
-     FONCTION DÉVERROUILLAGE
+     FONCTION POUR DÉVERROUILLER
   ========================= */
 
   function unlockFile(fileName) {
@@ -150,16 +176,43 @@ document.addEventListener("DOMContentLoaded", function () {
     );
 
     if (!file) {
+      console.error("Dossier introuvable :", fileName);
       return;
     }
 
+
+    /*
+     * ENLEVER LE VERROU
+     */
+
     file.classList.remove("locked");
+
+
+    /*
+     * CHANGER LE TEXTE
+     */
 
     const status = file.querySelector("span");
 
     if (status) {
       status.textContent = "SCELLÉ";
     }
+
+
+    /*
+     * GARANTIR QUE LE BOUTON EST CLIQUABLE
+     */
+
+    file.disabled = false;
+    file.style.pointerEvents = "auto";
+    file.style.cursor = "pointer";
+
+
+    /*
+     * Petit effet visuel
+     */
+
+    file.style.opacity = "1";
 
   }
 

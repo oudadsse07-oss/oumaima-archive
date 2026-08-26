@@ -2,8 +2,7 @@ const opening = document.getElementById("opening");
 const archive = document.getElementById("archive");
 const enterBtn = document.getElementById("enterBtn");
 
-
-// ENTRER DANS LES ARCHIVES
+// ENTER ARCHIVE
 
 enterBtn.addEventListener("click", function () {
 
@@ -11,83 +10,139 @@ enterBtn.addEventListener("click", function () {
 
   setTimeout(function () {
     archive.classList.add("active");
-  }, 800);
+  }, 700);
 
 });
 
 
-// OUVRIR TOUS LES DOSSIERS
-
-const files = document.querySelectorAll(".file");
-
-files.forEach(function (file) {
-
-  file.addEventListener("click", function () {
-
-    const fileName = file.dataset.file;
-
-    if (fileName === "birth") {
-      openDocument("birthDocument");
-    }
-
-    else if (fileName === "law") {
-      openDocument("lawDocument");
-    }
-
-    else if (fileName === "marriage") {
-      openDocument("marriageDocument");
-    }
-
-    else if (fileName === "mansour") {
-      openDocument("mansourDocument");
-    }
-
-    else if (fileName === "family") {
-      openDocument("familyDocument");
-    }
-
-    else if (fileName === "graduation") {
-      openDocument("graduationDocument");
-    }
-
-  });
-
-});
-
-
-// OUVRIR UNE PAGE
+// FUNCTION TO OPEN A DOCUMENT
 
 function openDocument(id) {
 
   const documentPage = document.getElementById(id);
 
-  documentPage.style.visibility = "visible";
+  if (!documentPage) return;
 
-  setTimeout(function () {
-    documentPage.style.opacity = "1";
-  }, 50);
+  documentPage.style.visibility = "visible";
+  documentPage.style.opacity = "1";
 
 }
 
 
-// FERMER LES PAGES
+// FUNCTION TO CLOSE A DOCUMENT
 
-const closeButtons = document.querySelectorAll(".close");
+function closeDocument(id) {
 
-closeButtons.forEach(function (button) {
+  const documentPage = document.getElementById(id);
 
-  button.addEventListener("click", function () {
+  if (!documentPage) return;
 
-    const id = button.getAttribute("data-close");
+  documentPage.style.opacity = "0";
 
-    const documentPage = document.getElementById(id);
+  setTimeout(function () {
+    documentPage.style.visibility = "hidden";
+  }, 700);
 
-    documentPage.style.opacity = "0";
+}
 
-    setTimeout(function () {
-      documentPage.style.visibility = "hidden";
-    }, 700);
 
-  });
+// OPEN FILES
+
+const birthFile = document.querySelector('[data-file="birth"]');
+const lawFile = document.querySelector('[data-file="law"]');
+const marriageFile = document.querySelector('[data-file="marriage"]');
+const mansourFile = document.querySelector('[data-file="mansour"]');
+const familyFile = document.querySelector('[data-file="family"]');
+const graduationFile = document.querySelector('[data-file="graduation"]');
+
+
+// FILE 01
+
+birthFile.addEventListener("click", function () {
+  openDocument("birthDocument");
+});
+
+
+// FILE 02
+
+lawFile.addEventListener("click", function () {
+  openDocument("lawDocument");
+});
+
+
+// FILE 03
+
+marriageFile.addEventListener("click", function () {
+  openDocument("marriageDocument");
+});
+
+
+// FILE 04
+
+mansourFile.addEventListener("click", function () {
+  openDocument("mansourDocument");
+});
+
+
+// FILE 05
+
+familyFile.addEventListener("click", function () {
+  openDocument("familyDocument");
+});
+
+
+// FINAL FILE
+
+graduationFile.addEventListener("click", function () {
+
+  if (graduationFile.classList.contains("locked")) {
+    return;
+  }
+
+  openDocument("graduationDocument");
 
 });
+
+
+// CLOSE BUTTONS
+
+document
+  .getElementById("closeBirth")
+  .addEventListener("click", function () {
+    closeDocument("birthDocument");
+  });
+
+
+document
+  .getElementById("closeLaw")
+  .addEventListener("click", function () {
+    closeDocument("lawDocument");
+  });
+
+
+document
+  .getElementById("closeMarriage")
+  .addEventListener("click", function () {
+    closeDocument("marriageDocument");
+  });
+
+
+document
+  .getElementById("closeMansour")
+  .addEventListener("click", function () {
+    closeDocument("mansourDocument");
+  });
+
+
+document
+  .getElementById("closeFamily")
+  .addEventListener("click", function () {
+    closeDocument("familyDocument");
+  });
+
+
+document
+  .getElementById("closeGraduation")
+  .addEventListener("click", function () {
+    closeDocument("graduationDocument");
+  });

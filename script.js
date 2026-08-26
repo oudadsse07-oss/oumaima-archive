@@ -1,29 +1,21 @@
 document.addEventListener("DOMContentLoaded", function () {
 
   /* =========================
-     ACCUEIL → ARCHIVES
-  ========================= */
+     ELEMENTS
+  ========================== */
 
   const opening = document.getElementById("opening");
   const archive = document.getElementById("archive");
   const enterBtn = document.getElementById("enterBtn");
 
-  if (enterBtn) {
-    enterBtn.addEventListener("click", function () {
-
-      opening.classList.remove("active");
-
-      setTimeout(function () {
-        archive.classList.add("active");
-      }, 700);
-
-    });
-  }
-
-
-  /* =========================
-     TOUS LES DOCUMENTS
-  ========================= */
+  const files = {
+    birth: document.getElementById("birthFile"),
+    law: document.getElementById("lawFile"),
+    marriage: document.getElementById("marriageFile"),
+    mansour: document.getElementById("mansourFile"),
+    family: document.getElementById("familyFile"),
+    coming: document.getElementById("comingFile")
+  };
 
   const documents = {
     birth: document.getElementById("birthDocument"),
@@ -31,166 +23,76 @@ document.addEventListener("DOMContentLoaded", function () {
     marriage: document.getElementById("marriageDocument"),
     mansour: document.getElementById("mansourDocument"),
     family: document.getElementById("familyDocument"),
-    graduation: document.getElementById("graduationDocument")
+    coming: document.getElementById("comingDocument")
   };
 
 
   /* =========================
-     TOUS LES DOSSIERS
-  ========================= */
+     ENTER ARCHIVE
+  ========================== */
 
-  const files = document.querySelectorAll(".file");
+  enterBtn.addEventListener("click", function () {
 
+    opening.classList.remove("active");
 
-  /* =========================
-     OUVRIR UN DOSSIER
-  ========================= */
-
-  files.forEach(function (file) {
-
-    file.addEventListener("click", function (event) {
-
-      event.preventDefault();
-      event.stopPropagation();
-
-      /*
-       * Si le dossier est verrouillé,
-       * on ne fait absolument rien.
-       */
-      if (file.classList.contains("locked")) {
-        return;
-      }
-
-      const fileName = file.getAttribute("data-file");
-
-      const documentElement = documents[fileName];
-
-      if (!documentElement) {
-        return;
-      }
-
-      /*
-       * OUVERTURE
-       */
-
-      documentElement.style.visibility = "visible";
-      documentElement.style.opacity = "1";
-
-    });
+    setTimeout(function () {
+      archive.classList.add("active");
+    }, 700);
 
   });
 
 
   /* =========================
-     TOUS LES BOUTONS RETOUR
-  ========================= */
+     OPEN FILE
+  ========================== */
 
-  const backButtons = document.querySelectorAll(".back-button");
+  function openFile(name) {
 
-  backButtons.forEach(function (button) {
+    const file = files[name];
+    const documentPage = documents[name];
 
-    button.addEventListener("click", function (event) {
-
-      event.preventDefault();
-      event.stopPropagation();
-
-      const documentElement = button.closest(".document");
-
-      if (!documentElement) {
-        return;
-      }
-
-      const documentId = documentElement.id;
-
-
-      /*
-       * FERMER LE DOCUMENT
-       */
-
-      documentElement.style.opacity = "0";
-
-      setTimeout(function () {
-        documentElement.style.visibility = "hidden";
-      }, 500);
-
-
-      /*
-       * =========================
-       * DÉVERROUILLAGE PROGRESSIF
-       * =========================
-       */
-
-      if (documentId === "birthDocument") {
-
-        unlockFile("law");
-
-      }
-
-
-      else if (documentId === "lawDocument") {
-
-        unlockFile("marriage");
-
-      }
-
-
-      else if (documentId === "marriageDocument") {
-
-        unlockFile("mansour");
-
-      }
-
-
-      else if (documentId === "mansourDocument") {
-
-        unlockFile("family");
-
-      }
-
-
-      /*
-       * =========================
-       * FAMILLE → COMING SOON
-       * =========================
-       */
-
-      else if (documentId === "familyDocument") {
-
-        unlockFile("graduation");
-
-      }
-
-    });
-
-  });
-
-
-  /* =========================
-     FONCTION POUR DÉVERROUILLER
-  ========================= */
-
-  function unlockFile(fileName) {
-
-    const file = document.querySelector(
-      '.file[data-file="' + fileName + '"]'
-    );
-
-    if (!file) {
-      console.error("Dossier introuvable :", fileName);
+    if (!file || !documentPage) {
       return;
     }
 
+    if (file.classList.contains("locked")) {
+      return;
+    }
 
-    /*
-     * ENLEVER LE VERROU
-     */
+    documentPage.classList.add("open");
+  }
+
+
+  /* =========================
+     CLOSE DOCUMENT
+  ========================== */
+
+  function closeDocument(name) {
+
+    const documentPage = documents[name];
+
+    if (!documentPage) {
+      return;
+    }
+
+    documentPage.classList.remove("open");
+
+  }
+
+
+  /* =========================
+     UNLOCK FILE
+  ========================== */
+
+  function unlockFile(name) {
+
+    const file = files[name];
+
+    if (!file) {
+      return;
+    }
 
     file.classList.remove("locked");
-
-
-    /*
-     * CHANGER LE TEXTE
-     */
 
     const status = file.querySelector("span");
 
@@ -198,22 +100,91 @@ document.addEventListener("DOMContentLoaded", function () {
       status.textContent = "SCELLÉ";
     }
 
-
-    /*
-     * GARANTIR QUE LE BOUTON EST CLIQUABLE
-     */
-
-    file.disabled = false;
-    file.style.pointerEvents = "auto";
-    file.style.cursor = "pointer";
-
-
-    /*
-     * Petit effet visuel
-     */
-
-    file.style.opacity = "1";
-
   }
+
+
+  /* =========================
+     FILE CLICKS
+  ========================== */
+
+  files.birth.addEventListener("click", function () {
+    openFile("birth");
+  });
+
+  files.law.addEventListener("click", function () {
+    openFile("law");
+  });
+
+  files.marriage.addEventListener("click", function () {
+    openFile("marriage");
+  });
+
+  files.mansour.addEventListener("click", function () {
+    openFile("mansour");
+  });
+
+  files.family.addEventListener("click", function () {
+    openFile("family");
+  });
+
+  files.coming.addEventListener("click", function () {
+    openFile("coming");
+  });
+
+
+  /* =========================
+     BACK BUTTONS
+  ========================== */
+
+  document.getElementById("backBirth").addEventListener("click", function () {
+
+    closeDocument("birth");
+
+    unlockFile("law");
+
+  });
+
+
+  document.getElementById("backLaw").addEventListener("click", function () {
+
+    closeDocument("law");
+
+    unlockFile("marriage");
+
+  });
+
+
+  document.getElementById("backMarriage").addEventListener("click", function () {
+
+    closeDocument("marriage");
+
+    unlockFile("mansour");
+
+  });
+
+
+  document.getElementById("backMansour").addEventListener("click", function () {
+
+    closeDocument("mansour");
+
+    unlockFile("family");
+
+  });
+
+
+  document.getElementById("backFamily").addEventListener("click", function () {
+
+    closeDocument("family");
+
+    unlockFile("coming");
+
+  });
+
+
+  document.getElementById("backComing").addEventListener("click", function () {
+
+    closeDocument("coming");
+
+  });
 
 });

@@ -3,9 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
   <title>Oumaima — Les Archives</title>
-
   <link rel="stylesheet" href="style.css">
 </head>
 
@@ -63,92 +61,40 @@
 
     <div class="files">
 
-      <!-- 01 -->
-
-      <button
-        class="file"
-        type="button"
-        data-file="birth"
-        onclick="openDocument('birthDocument')"
-      >
+      <button class="file" id="birthFile" data-file="birth" type="button">
         <span>SCELLÉ</span>
         <strong>20 • 07 • 1998</strong>
         <small>DOSSIER 01</small>
       </button>
 
-
-      <!-- 02 -->
-
-      <button
-        class="file locked"
-        id="lawFile"
-        type="button"
-        data-file="law"
-        onclick="openIfUnlocked(this, 'lawDocument')"
-      >
+      <button class="file locked" id="lawFile" data-file="law" type="button">
         <span>VERROUILLÉ</span>
         <strong>2016</strong>
         <small>DOSSIER 02</small>
       </button>
 
-
-      <!-- 03 -->
-
-      <button
-        class="file locked"
-        id="marriageFile"
-        type="button"
-        data-file="marriage"
-        onclick="openIfUnlocked(this, 'marriageDocument')"
-      >
+      <button class="file locked" id="marriageFile" data-file="marriage" type="button">
         <span>VERROUILLÉ</span>
         <strong>2021</strong>
         <small>DOSSIER 03</small>
       </button>
 
-
-      <!-- 04 -->
-
-      <button
-        class="file locked"
-        id="mansourFile"
-        type="button"
-        data-file="mansour"
-        onclick="openIfUnlocked(this, 'mansourDocument')"
-      >
+      <button class="file locked" id="mansourFile" data-file="mansour" type="button">
         <span>VERROUILLÉ</span>
         <strong>17 • 04 • 2026</strong>
         <small>DOSSIER 04</small>
       </button>
 
-
-      <!-- 05 -->
-
-      <button
-        class="file locked"
-        id="familyFile"
-        type="button"
-        data-file="family"
-        onclick="openIfUnlocked(this, 'familyDocument')"
-      >
+      <button class="file locked" id="familyFile" data-file="family" type="button">
         <span>VERROUILLÉ</span>
         <strong>MESSAGE DE LA FAMILLE</strong>
         <small>DOSSIER 05</small>
       </button>
 
-
-      <!-- FINAL -->
-
-      <button
-        class="file locked"
-        id="graduationFile"
-        type="button"
-        data-file="graduation"
-        onclick="openIfUnlocked(this, 'graduationDocument')"
-      >
+      <button class="file locked" id="comingFile" data-file="coming" type="button">
         <span>VERROUILLÉ</span>
         <strong>???</strong>
-        <small>DOSSIER FINAL</small>
+        <small>COMING SOON</small>
       </button>
 
     </div>
@@ -162,18 +108,14 @@
 
 
   <!-- =========================
-       DOSSIER 01
+       DOCUMENT 01
   ========================== -->
 
   <section id="birthDocument" class="document">
 
     <div class="document-inner">
 
-      <button
-        class="back-button"
-        type="button"
-        onclick="closeDocument('birthDocument'); unlock('lawFile')"
-      >
+      <button class="back-button" id="backBirth" type="button">
         ← RETOUR AUX ARCHIVES
       </button>
 
@@ -213,18 +155,14 @@
 
 
   <!-- =========================
-       DOSSIER 02
+       DOCUMENT 02
   ========================== -->
 
   <section id="lawDocument" class="document">
 
     <div class="document-inner">
 
-      <button
-        class="back-button"
-        type="button"
-        onclick="closeDocument('lawDocument'); unlock('marriageFile')"
-      >
+      <button class="back-button" id="backLaw" type="button">
         ← RETOUR AUX ARCHIVES
       </button>
 
@@ -271,18 +209,14 @@
 
 
   <!-- =========================
-       DOSSIER 03
+       DOCUMENT 03
   ========================== -->
 
   <section id="marriageDocument" class="document">
 
     <div class="document-inner">
 
-      <button
-        class="back-button"
-        type="button"
-        onclick="closeDocument('marriageDocument'); unlock('mansourFile')"
-      >
+      <button class="back-button" id="backMarriage" type="button">
         ← RETOUR AUX ARCHIVES
       </button>
 
@@ -326,18 +260,14 @@
 
 
   <!-- =========================
-       DOSSIER 04
+       DOCUMENT 04
   ========================== -->
 
   <section id="mansourDocument" class="document">
 
     <div class="document-inner">
 
-      <button
-        class="back-button"
-        type="button"
-        onclick="closeDocument('mansourDocument'); unlock('familyFile')"
-      >
+      <button class="back-button" id="backMansour" type="button">
         ← RETOUR AUX ARCHIVES
       </button>
 
@@ -358,8 +288,7 @@
       </p>
 
       <p>
-        Un nouvel amour est entré dans son histoire,
-        apportant avec lui une nouvelle aventure.
+        Une nouvelle aventure a commencé.
       </p>
 
       <p>
@@ -379,18 +308,14 @@
 
 
   <!-- =========================
-       DOSSIER 05 — FAMILLE
+       DOCUMENT 05 — FAMILLE
   ========================== -->
 
   <section id="familyDocument" class="document">
 
     <div class="document-inner">
 
-      <button
-        class="back-button"
-        type="button"
-        onclick="closeDocument('familyDocument'); unlock('graduationFile')"
-      >
+      <button class="back-button" id="backFamily" type="button">
         ← RETOUR AUX ARCHIVES
       </button>
 
@@ -464,18 +389,14 @@
 
 
   <!-- =========================
-       DOSSIER FINAL — COMING SOON
+       COMING SOON
   ========================== -->
 
-  <section id="graduationDocument" class="document">
+  <section id="comingDocument" class="document">
 
     <div class="document-inner">
 
-      <button
-        class="back-button"
-        type="button"
-        onclick="closeDocument('graduationDocument')"
-      >
+      <button class="back-button" id="backComing" type="button">
         ← RETOUR AUX ARCHIVES
       </button>
 
@@ -523,108 +444,7 @@
   </section>
 
 
-  <!-- =========================
-       JAVASCRIPT INTÉGRÉ
-  ========================== -->
-
-  <script>
-
-    /* =========================
-       ENTRER DANS LES ARCHIVES
-    ========================== */
-
-    document.getElementById("enterBtn").addEventListener("click", function () {
-
-      document.getElementById("opening").classList.remove("active");
-
-      setTimeout(function () {
-        document.getElementById("archive").classList.add("active");
-      }, 700);
-
-    });
-
-
-    /* =========================
-       OUVRIR UN DOCUMENT
-    ========================== */
-
-    function openDocument(id) {
-
-      const documentPage = document.getElementById(id);
-
-      if (!documentPage) {
-        return;
-      }
-
-      documentPage.style.visibility = "visible";
-      documentPage.style.opacity = "1";
-    }
-
-
-    /* =========================
-       OUVRIR SI DÉVERROUILLÉ
-    ========================== */
-
-    function openIfUnlocked(button, documentId) {
-
-      if (button.classList.contains("locked")) {
-        return;
-      }
-
-      openDocument(documentId);
-    }
-
-
-    /* =========================
-       FERMER UN DOCUMENT
-    ========================== */
-
-    function closeDocument(id) {
-
-      const documentPage = document.getElementById(id);
-
-      if (!documentPage) {
-        return;
-      }
-
-      documentPage.style.opacity = "0";
-
-      setTimeout(function () {
-        documentPage.style.visibility = "hidden";
-      }, 500);
-
-    }
-
-
-    /* =========================
-       DÉVERROUILLER UN DOSSIER
-    ========================== */
-
-    function unlock(id) {
-
-      const file = document.getElementById(id);
-
-      if (!file) {
-        return;
-      }
-
-      file.classList.remove("locked");
-
-      file.disabled = false;
-
-      file.style.pointerEvents = "auto";
-      file.style.cursor = "pointer";
-      file.style.opacity = "1";
-
-      const status = file.querySelector("span");
-
-      if (status) {
-        status.textContent = "SCELLÉ";
-      }
-
-    }
-
-  </script>
+  <script src="script.js"></script>
 
 </body>
 </html>

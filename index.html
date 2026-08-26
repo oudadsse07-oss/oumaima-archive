@@ -11,7 +11,9 @@
 
 <body>
 
+  <!-- ========================= -->
   <!-- OPENING -->
+  <!-- ========================= -->
 
   <section id="opening" class="screen active">
 
@@ -37,7 +39,7 @@
       Son nom : <strong>Oumaima Oudadsse.</strong>
     </p>
 
-    <button id="enterBtn">
+    <button id="enterBtn" type="button">
       ENTRER DANS LES ARCHIVES →
     </button>
 
@@ -48,7 +50,9 @@
   </section>
 
 
+  <!-- ========================= -->
   <!-- ARCHIVE -->
+  <!-- ========================= -->
 
   <section id="archive" class="screen">
 
@@ -59,37 +63,37 @@
 
     <div class="files">
 
-      <button class="file" data-file="birth">
+      <button class="file" type="button" data-file="birth">
         <span>SCELLÉ</span>
         <strong>20 • 07 • 1998</strong>
         <small>DOSSIER 01</small>
       </button>
 
-      <button class="file" data-file="law">
+      <button class="file" type="button" data-file="law">
         <span>SCELLÉ</span>
         <strong>2016</strong>
         <small>DOSSIER 02</small>
       </button>
 
-      <button class="file" data-file="marriage">
+      <button class="file" type="button" data-file="marriage">
         <span>SCELLÉ</span>
         <strong>2021</strong>
         <small>DOSSIER 03</small>
       </button>
 
-      <button class="file" data-file="mansour">
+      <button class="file" type="button" data-file="mansour">
         <span>SCELLÉ</span>
         <strong>17 • 04 • 2026</strong>
         <small>DOSSIER 04</small>
       </button>
 
-      <button class="file" data-file="family">
+      <button class="file" type="button" data-file="family">
         <span>SCELLÉ</span>
         <strong>MESSAGE DE LA FAMILLE</strong>
         <small>DOSSIER 05</small>
       </button>
 
-      <button class="file locked" data-file="graduation">
+      <button class="file locked" type="button" data-file="graduation">
         <span>VERROUILLÉ</span>
         <strong>???</strong>
         <small>DOSSIER FINAL</small>
@@ -105,11 +109,20 @@
   </section>
 
 
+  <!-- ========================= -->
   <!-- DOSSIER 01 -->
+  <!-- ========================= -->
 
   <section id="birthDocument" class="document">
 
-    <button id="closeBirth" class="back-button">
+    <button
+      id="closeBirth"
+      class="back-button"
+      type="button"
+      onclick="
+        document.getElementById('birthDocument').style.opacity='0';
+        document.getElementById('birthDocument').style.visibility='hidden';
+      ">
       ← RETOUR AUX ARCHIVES
     </button>
 
@@ -150,11 +163,20 @@
   </section>
 
 
+  <!-- ========================= -->
   <!-- DOSSIER 02 -->
+  <!-- ========================= -->
 
   <section id="lawDocument" class="document">
 
-    <button id="closeLaw" class="back-button">
+    <button
+      id="closeLaw"
+      class="back-button"
+      type="button"
+      onclick="
+        document.getElementById('lawDocument').style.opacity='0';
+        document.getElementById('lawDocument').style.visibility='hidden';
+      ">
       ← RETOUR AUX ARCHIVES
     </button>
 
@@ -202,11 +224,20 @@
   </section>
 
 
+  <!-- ========================= -->
   <!-- DOSSIER 03 -->
+  <!-- ========================= -->
 
   <section id="marriageDocument" class="document">
 
-    <button id="closeMarriage" class="back-button">
+    <button
+      id="closeMarriage"
+      class="back-button"
+      type="button"
+      onclick="
+        document.getElementById('marriageDocument').style.opacity='0';
+        document.getElementById('marriageDocument').style.visibility='hidden';
+      ">
       ← RETOUR AUX ARCHIVES
     </button>
 
@@ -251,11 +282,20 @@
   </section>
 
 
+  <!-- ========================= -->
   <!-- DOSSIER 04 -->
+  <!-- ========================= -->
 
   <section id="mansourDocument" class="document">
 
-    <button id="closeMansour" class="back-button">
+    <button
+      id="closeMansour"
+      class="back-button"
+      type="button"
+      onclick="
+        document.getElementById('mansourDocument').style.opacity='0';
+        document.getElementById('mansourDocument').style.visibility='hidden';
+      ">
       ← RETOUR AUX ARCHIVES
     </button>
 
@@ -299,11 +339,20 @@
   </section>
 
 
-  <!-- DOSSIER 05 -->
+  <!-- ========================= -->
+  <!-- DOSSIER 05 : FAMILLE -->
+  <!-- ========================= -->
 
   <section id="familyDocument" class="document">
 
-    <button id="closeFamily" class="back-button">
+    <button
+      id="closeFamily"
+      class="back-button"
+      type="button"
+      onclick="
+        document.getElementById('familyDocument').style.opacity='0';
+        document.getElementById('familyDocument').style.visibility='hidden';
+      ">
       ← RETOUR AUX ARCHIVES
     </button>
 
@@ -378,11 +427,20 @@
   </section>
 
 
-  <!-- DERNIER DOSSIER -->
+  <!-- ========================= -->
+  <!-- DOSSIER FINAL -->
+  <!-- ========================= -->
 
   <section id="graduationDocument" class="document">
 
-    <button id="closeGraduation" class="back-button">
+    <button
+      id="closeGraduation"
+      class="back-button"
+      type="button"
+      onclick="
+        document.getElementById('graduationDocument').style.opacity='0';
+        document.getElementById('graduationDocument').style.visibility='hidden';
+      ">
       ← RETOUR AUX ARCHIVES
     </button>
 
@@ -431,8 +489,6 @@
 
   </section>
 
-
-  <!-- JAVASCRIPT -->
 
   <script src="script.js"></script>
 
